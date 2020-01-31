@@ -2,6 +2,7 @@ package com.example.android.miwok;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +15,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
-    public WordAdapter( Context context, ArrayList<Word> words) {
+    private int mColorResourceId;
+    public WordAdapter( Context context, ArrayList<Word> words, int colorResourceId) {
         super(context,0, words);
+        mColorResourceId = colorResourceId;
     }
     @NonNull
     @Override
@@ -42,7 +45,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
                 {
                     imageView.setVisibility(View.GONE);
                 }
-
+        View textContainer = listItemView.findViewById(R.id.text_container);
+        int color = ContextCompat.getColor(getContext(),mColorResourceId);
+        textContainer.setBackgroundColor(color);
         return listItemView;
     }
 }

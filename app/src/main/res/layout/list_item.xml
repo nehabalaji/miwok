@@ -5,27 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="15dp">
+    android:background="@color/tan_background"
+    android:minHeight="@dimen/list_item_height">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="15dp"
         android:id="@+id/list_item1"
+        android:minHeight="@dimen/list_item_height"
+        android:minWidth="@dimen/list_item_height"
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:paddingLeft="16dp"
+        android:id="@+id/text_container">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+       android:layout_height="@dimen/list_item_height"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:textAppearance="?android:textAppearanceMedium"
         tools:text="Miwok_word"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:id="@+id/tv1"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@color/white"
         tools:text="English"
         android:id="@+id/tv2"/>
 </LinearLayout>

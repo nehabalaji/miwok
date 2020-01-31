@@ -22,7 +22,7 @@ public class colorsactivity extends AppCompatActivity {
         color.add(new Word("dusty yellow","ṭopiisә",R.drawable.color_dusty_yellow));
         color.add(new Word("mustard yellow","chiwiiṭә",R.drawable.color_mustard_yellow));
 
-        WordAdapter adapter1 = new WordAdapter(this, color);
+        WordAdapter adapter1 = new WordAdapter(this, color, R.color.category_colors);
         ListView listview1 = (ListView) findViewById(R.id.list);
 
         assert listview1 != null;
