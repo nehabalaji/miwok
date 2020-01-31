@@ -13,7 +13,7 @@ public class phrasesactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
-        ArrayList<Word> phrase = new ArrayList<>();
+        final ArrayList<Word> phrase = new ArrayList<>();
         phrase.add(new Word("Where are you going?","minto wuksus"));
         phrase.add(new Word("What is your name?","tinnә oyaase'nә"));
         phrase.add(new Word("My name is...","oyaaset..."));

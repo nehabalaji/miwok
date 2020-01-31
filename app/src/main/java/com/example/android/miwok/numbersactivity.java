@@ -16,9 +16,9 @@ public class numbersactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        ArrayList<Word> number = new ArrayList<>();
-        number.add(new Word ("one","lutti",R.drawable.number_one));
-        number.add(new Word("two","otiiko",R.drawable.number_two));
+       final ArrayList<Word> number = new ArrayList<>();
+        number.add(new Word("one","lutti", R.drawable.number_one));
+        number.add(new Word("two","otiiko", R.drawable.number_two));
         number.add(new Word("three","tolookosu",R.drawable.number_three));
         number.add(new Word("four","oyyisa",R.drawable.number_four));
         number.add(new Word("five","massokka",R.drawable.number_five));
@@ -30,8 +30,6 @@ public class numbersactivity extends AppCompatActivity {
 
         WordAdapter Adapter = new WordAdapter(this, number);
         ListView listView = (ListView) findViewById(R.id.list);
-
-        assert listView != null;
         listView.setAdapter(Adapter);
 
 

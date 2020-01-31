@@ -12,7 +12,7 @@ public class colorsactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
-        ArrayList<Word> color = new ArrayList<>();
+        final ArrayList<Word> color = new ArrayList<>();
         color.add(new Word("red","weṭeṭṭi",R.drawable.color_red));
         color.add(new Word("green","chokokki",R.drawable.color_green));
         color.add(new Word("brown","ṭakaakki",R.drawable.color_brown));
