@@ -17,6 +17,12 @@ import java.util.ArrayList;
 public class numbersactivity extends AppCompatActivity {
 
     private MediaPlayer mMediaPlayer;
+    private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            releaseMediaPlayer();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +49,17 @@ public class numbersactivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                releaseMediaPlayer();
                 Word word = number.get(i);
                 mMediaPlayer = MediaPlayer.create(numbersactivity.this,word.getmAudioResId());
                 mMediaPlayer.start();
             }
         });
-
-
-
+    }
+    private void releaseMediaPlayer(){
+        if (mMediaPlayer != null){
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
     }
 }
