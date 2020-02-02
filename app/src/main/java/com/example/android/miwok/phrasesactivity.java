@@ -1,5 +1,6 @@
 package com.example.android.miwok;
 
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,12 @@ public class phrasesactivity extends AppCompatActivity {
 
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
@@ -42,6 +49,7 @@ public class phrasesactivity extends AppCompatActivity {
 
         listView2.setAdapter(adapter2);
 
+
         listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -60,4 +68,23 @@ public class phrasesactivity extends AppCompatActivity {
             mMediaplayer = null;
         }
     }
+
+    private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int i) {
+            if(i == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || i == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+                mMediaplayer.pause();
+                mMediaplayer.seekTo(0);
+            }
+            else
+                if(i == AudioManager.AUDIOFOCUS_GAIN){
+                    mMediaplayer.start();
+                }
+                else
+                    if(i==AudioManager.AUDIOFOCUS_LOSS){
+                        releaseMediaPlayer();
+                    }
+
+        }
+    };
 }

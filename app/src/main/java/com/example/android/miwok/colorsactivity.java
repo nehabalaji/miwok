@@ -20,6 +20,12 @@ public class colorsactivity extends AppCompatActivity {
     };
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
@@ -38,6 +44,8 @@ public class colorsactivity extends AppCompatActivity {
 
         assert listview1 != null;
         listview1.setAdapter(adapter1);
+
+
 
         listview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
